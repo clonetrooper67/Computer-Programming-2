@@ -34,9 +34,17 @@ int main(void){
 	reverseString(str3);
 	cout << endl;
 	reverseString(str4);
-	
 	return 0;
 }
 void reverseString(string in_str){
-	// Your code goes here
+	string currentString = in_str;
+	string reversedString = "";
+	string testing = "assd";
+
+	int stringLength = currentString.length();
+
+	for(int i = stringLength; i>=0; i--){
+		reversedString += currentString[i];
+	}
+	cout << reversedString << endl;
 }
