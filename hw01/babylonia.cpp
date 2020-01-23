@@ -18,6 +18,8 @@
 #include <iostream>
 #include <cmath>
 
+#define NUM_RUNS 5
+
 using namespace std;
 
 //Function prototypes
@@ -52,7 +54,7 @@ double squareRoot(double input){
 	double guess = 2.0;
 	double r;
 
-	for(int i = 0; i<5; i++){
+	for(int i = 0; i<NUM_RUNS; i++){
 		r = input/guess;
 		guess = (guess+r)/2.0;
 	}
@@ -63,7 +65,10 @@ double squareRoot(double input){
 //Function that calculates the percent error in the approximation
 double calculatePctErr(double approximation, double input){
 	double actual = sqrt(input);
-	double pctErr = abs(approximation-actual)*100.0/actual;
+	double pctErr = abs(approximation-actual)/actual*100.0;
+
+	cout << approximation << endl;
+	cout << actual << endl;
 	
 	return pctErr;
 }
@@ -72,7 +77,6 @@ double calculatePctErr(double approximation, double input){
 values and percent error value.
 */
 void outputValues(double approximation, double input, double pctErr){
-	printf ("%.2f\n", approximation);
-	printf ("%.2f\n", pctErr);
+	printf ("%.2f \n", approximation);
+	printf ("%.2f %% \n", pctErr);
 }
-
