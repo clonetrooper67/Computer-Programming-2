@@ -19,6 +19,7 @@
 using namespace std;
 //Function prototype
 double taxCalc(double inco, char filing);
+double alternateTaxCalc(double inco, char filing);
 
 const int tax[7] ={10,12,22,24,32,35,37};
 const int taxBracket[4][6]= {{9700,39475,84200,160725,204100,510300},
@@ -42,7 +43,7 @@ int main(void){
 
 	//Your code to determine the filing status and the taxBracket
 	//Call taxCalc function to calculate the tax
-	cout << "Tax due is " << income * taxCalc(income, filingStatus) << endl;
+	cout << "Tax due is " << income * alternateTaxCalc(income, filingStatus) << endl;
 
 	return 0;
 }
@@ -87,4 +88,33 @@ double taxCalc(double inco, char filing){
 				else return tax[6] / 100.0;
 			}
 	}
+}
+
+double alternateTaxCalc(double inco, char filing)
+{
+	int filingStatus = 0;
+	switch (filing)
+	{
+		case 's':
+		case 'S':
+			break;
+		case 'm':
+		case 'M':
+			filingStatus = 1;
+			break;
+		case 'F':
+		case 'f':
+			filingStatus = 2;
+		case 'H':
+		case 'h':
+			filingStatus = 3;
+			break;
+	}
+	for (int i = 0; i < 6; i++)
+	{
+		if (inco < taxBracket[filingStatus][i])
+			return tax[i] / 100.0;
+		else return tax[6] / 100.0;
+	}
+
 }
