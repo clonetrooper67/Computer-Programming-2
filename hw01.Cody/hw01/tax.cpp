@@ -114,7 +114,6 @@ double alternateTaxCalc(double inco, char filing)
 	{
 		if (inco < taxBracket[filingStatus][i])
 			return tax[i] / 100.0;
-		else return tax[6] / 100.0;
 	}
-
+	return tax[6] / 100.0;
 }
