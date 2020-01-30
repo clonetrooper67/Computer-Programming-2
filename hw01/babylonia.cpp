@@ -67,8 +67,8 @@ double calculatePctErr(double approximation, double input){
 	double actual = sqrt(input);
 	double pctErr = abs(approximation-actual)/actual*100.0;
 
-	cout << approximation << endl;
-	cout << actual << endl;
+	// cout << "Approximation: " << approximation << endl;
+	// cout << "Actual Number: " << actual << endl;
 	
 	return pctErr;
 }
