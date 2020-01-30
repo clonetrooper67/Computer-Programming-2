@@ -66,7 +66,7 @@ double squareRoot(double userInput){
 double calculatePctErr(double approximation, double userInput){
 	double actualValue = sqrt(userInput);
 	double error = abs(approximation - actualValue) * 100/actualValue;
-
+  return error;
 }
 
 /*Function that outputs the approximation and actual square root

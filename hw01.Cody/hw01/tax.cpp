@@ -85,9 +85,15 @@ double taxCalc(double inco, char filing){
 			{
 				if (inco < taxBracket[3][i])
 					return tax[i] / 100.0;
-				else return tax[6] / 100.0;
 			}
+			return tax[6] / 100.0;
+			break;
+	  default:
+			cout << "Error in logic" << endl;
+			return 0.00;
+			break;
 	}
+	return 0.00;
 }
 
 double alternateTaxCalc(double inco, char filing)
