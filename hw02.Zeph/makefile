@@ -9,3 +9,5 @@ run:
 	./mocha
 clean:
 	rm Mocha.o mochajoe.o mocha
+
+g++ barcode.cpp -std=c++11
